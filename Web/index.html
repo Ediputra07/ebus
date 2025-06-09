@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WIndY Creative</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // animasi fade in saat scroll
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll(".fade-in");
+      const options = {
+        threshold: 0.1
+      };
+      const appearOnScroll = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("opacity-100", "translate-y-0");
+          obs.unobserve(entry.target);
+        });
+      }, options);
+      faders.forEach(fader => {
+        fader.classList.add("opacity-0", "translate-y-4", "transition", "duration-700");
+        appearOnScroll.observe(fader);
+      });
+    });
+  </script>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 text-center">
+    <h1 class="text-4xl font-bold mb-4">WindY Creative</h1>
+    <p class="text-lg">Jasa desain poster profesional untuk promosi, event, dan konten sosial media</p>
+    <a href="#order" class="mt-6 inline-block bg-white text-purple-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition">Pesan Sekarang</a>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <h2 class="text-2xl font-bold text-center mb-10">Layanan Kami</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-in bg-white shadow-lg p-6 rounded-xl text-center">
+        <h3 class="font-semibold text-lg mb-2">Poster Promosi</h3>
+        <p>Desain untuk promosi produk, jasa, dan campaign digital marketing.</p>
+      </div>
+      <div class="fade-in bg-white shadow-lg p-6 rounded-xl text-center">
+        <h3 class="font-semibold text-lg mb-2">Poster Event</h3>
+        <p>Poster profesional untuk seminar, konser, workshop, dan kegiatan lainnya.</p>
+      </div>
+      <div class="fade-in bg-white shadow-lg p-6 rounded-xl text-center">
+        <h3 class="font-semibold text-lg mb-2">Poster Sosial Media</h3>
+        <p>Konten visual menarik untuk Instagram dan TikTok sesuai tren terkini.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-10">Contoh Desain</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <img src="poster1.png" alt="Poster 1" class="fade-in rounded hover:scale-105 hover:shadow-lg">
+        <img src="poster2.png" alt="Poster 2" class="fade-in rounded hover:scale-105 hover:shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section id="order" class="py-16 px-6 max-w-xl mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-6">Pesan Sekarang</h2>
+    <p class="mb-4">Harga mulai dari Rp15.000 termasuk revisi (Terbatas). Kirim brief dan dapatkan desain cepat & profesional.</p>
+    <a href="https://www.instagram.com/direct/t/17845538070460718" target="_blank" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-full transition shadow-md">Pesan via Instagram</a>
+    <a href="https://www.tiktok.com/messages?lang=id-ID&u=7501243287165207572" target="_blank" class="bg-slate-500 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded-full transition shadow-md">Pesan via Tiktok</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>©2025 Windy Creative</p>
+    <p>Follow kami: 
+      <a href="https://www.instagram.com/wcr_077/" target="_blank" class="hover:underline">Instagram</a> | 
+      <a href="https://www.tiktok.com/@windycr77" target="_blank" class="hover:underline">TikTok</a>
+    </p>
+  </footer>
+</body>
+</html>
