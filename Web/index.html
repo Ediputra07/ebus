@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WIndY Creative</title>
+  <meta name="description" content="Jasa desain poster murah dan profesional">
+  <title>WindY Creative</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
     // animasi fade in saat scroll
     document.addEventListener("DOMContentLoaded", () => {
@@ -23,15 +26,39 @@
         fader.classList.add("opacity-0", "translate-y-4", "transition", "duration-700");
         appearOnScroll.observe(fader);
       });
+
+      // Modal functionality
+      const modal = document.getElementById('paymentModal');
+      const openModalBtns = document.querySelectorAll('.open-payment-modal');
+      const closeModalBtn = document.getElementById('closeModal');
+
+      openModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      closeModalBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+      });
     });
   </script>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 font-['Poppins']">
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 text-center">
     <h1 class="text-4xl font-bold mb-4">WindY Creative</h1>
     <p class="text-lg">Jasa desain poster profesional untuk promosi, event, dan konten sosial media</p>
-    <a href="#order" class="mt-6 inline-block bg-white text-purple-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition">Pesan Sekarang</a>
+    <a href="#catalog" class="mt-6 inline-block bg-white text-purple-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition">Lihat Katalog</a>
   </section>
 
   <!-- Services -->
@@ -53,32 +80,212 @@
     </div>
   </section>
 
-  <!-- Portfolio Preview -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold text-center mb-10">Contoh Desain</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <img src="poster1.png" alt="Poster 1" class="fade-in rounded hover:scale-105 hover:shadow-lg">
-        <img src="poster2.png" alt="Poster 2" class="fade-in rounded hover:scale-105 hover:shadow-lg">
+  <!-- Catalog Section -->
+  <section id="catalog" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Katalog & Harga</h2>
+      
+      <!-- Paket Desain -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Paket Basic -->
+        <div class="fade-in bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-blue-500 relative flex flex-col h-full">
+          <div class="absolute top-0 right-0 bg-blue-500 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+            Terjangkau
+          </div>
+          <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Paket Basic</h3>
+            <div class="text-3xl font-bold">Rp 15.000</div>
+            <p class="text-sm opacity-90 mt-1">Per desain</p>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <ul class="space-y-3 text-sm flex-grow">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>1 desain poster</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Format JPG/PNG</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>1x revisi gratis</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Waktu pengerjaan 1-2 hari</li>
+            </ul>
+            <button class="w-full mt-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition open-payment-modal">
+              Pesan Sekarang
+            </button>
+          </div>
+        </div>
+
+        <!-- Paket Standard -->
+        <div class="fade-in bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-purple-500 relative flex flex-col h-full">
+          <div class="absolute top-0 right-0 bg-purple-500 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+            POPULER
+          </div>
+          <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Paket Standard</h3>
+            <div class="text-3xl font-bold">Rp 25.000</div>
+            <p class="text-sm opacity-90 mt-1">Per desain</p>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <ul class="space-y-3 text-sm flex-grow">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>1 desain poster</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Format JPG/PNG/PDF</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>2x revisi gratis</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>File source (PSD/AI)</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Waktu pengerjaan 1 hari</li>
+            </ul>
+            <button class="w-full mt-6 bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg transition open-payment-modal">
+              Pesan Sekarang
+            </button>
+          </div>
+        </div>
+
+        <!-- Paket Premium -->
+        <div class="fade-in bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-orange-500 relative flex flex-col h-full">
+          <div class="absolute top-0 right-0 bg-orange-500 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+            Profesioanal
+          </div>
+          <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Paket Premium</h3>
+            <div class="text-3xl font-bold">Rp 40.000</div>
+            <p class="text-sm opacity-90 mt-1">Per desain</p>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <ul class="space-y-3 text-sm flex-grow">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>1 desain poster</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Format JPG/PNG/PDF</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Revisi unlimited</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>File source (PSD/AI)</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>3 varian desain</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>Waktu pengerjaan 12 jam</li>
+            </ul>
+            <button class="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition open-payment-modal">
+              Pesan Sekarang
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Portfolio Preview -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-10">Contoh Desain</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="fade-in">
+          <img src="poster1.png" alt="Poster Event" class="w-full h-auto rounded-lg shadow-lg object-cover hover:scale-105 transition-transform">
+        </div>
+        <div class="fade-in">
+          <img src="poster2.png" alt="Poster Promosi" class="w-full h-auto rounded-lg shadow-lg object-cover hover:scale-105 transition-transform">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-4 md:p-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+          <h3 class="text-xl font-bold">Cara Pemesanan & Pembayaran</h3>
+          <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-3xl leading-none">&times;</button>
+        </div>
+        
+        <!-- Langkah Pemesanan -->
+        <div class="mb-6">
+          <h4 class="font-semibold mb-3 text-purple-600">📝 Langkah Pemesanan:</h4>
+          <ol class="space-y-3 text-sm">
+            <li class="flex items-start"><span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">1</span><span>Pilih paket yang diinginkan</span></li>
+            <li class="flex items-start"><span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">2</span><span>Hubungi kami via Instagram/TikTok</span></li>
+            <li class="flex items-start"><span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">3</span><span>Kirim brief desain & referensi</span></li>
+            <li class="flex items-start"><span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">4</span><span>Lakukan pembayaran</span></li>
+            <li class="flex items-start"><span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">5</span><span>Tunggu desain selesai!</span></li>
+          </ol>
+        </div>
+
+        <!-- Metode Pembayaran -->
+        <div class="mb-6">
+          <h4 class="font-semibold mb-3 text-green-600">💳 Metode Pembayaran:</h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- QRIS -->
+            <div class="bg-green-50 rounded-lg p-4 text-center">
+              <div class="text-green-600 text-3xl mb-2">📱</div>
+              <h5 class="font-semibold text-green-700 mb-1">QRIS</h5>
+              <p class="text-sm text-gray-600">Semua E-Wallet & Bank Digital</p>
+            </div>
+
+            <!-- Transfer Bank -->
+            <div class="bg-blue-50 rounded-lg p-4 text-center">
+              <div class="text-blue-600 text-3xl mb-2">🏦</div>
+              <h5 class="font-semibold text-blue-700 mb-1">Transfer Bank</h5>
+              <p class="text-sm text-gray-600">BCA, BRI, BNI</p>
+            </div>
+          </div>
+          
+          <div class="mt-4 p-3 bg-gray-50 rounded-lg text-center">
+            <p class="text-sm text-gray-600">
+              <span class="font-semibold">💡 Info:</span> Detail rekening akan diberikan setelah konfirmasi pesanan
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a href="https://www.instagram.com/direct/t/17845538070460718" target="_blank" 
+          class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center hover:from-pink-600 hover:to-purple-700 transition text-sm">
+            <span><i class="fab fa-tiktok text-xs mr-2"></i></span> Instagram
+          </a>
+          <a href="https://www.tiktok.com/messages?lang=id-ID&u=7501243287165207572" target="_blank" 
+          class="w-full bg-black text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center hover:bg-gray-800 transition text-sm">
+            <span><i class="fab fa-tiktok text-xs mr-2"></i></span> TikTok
+          </a>
+        </div>
+
+        <div class="mt-4 p-3 bg-yellow-50 rounded-lg text-center">
+          <p class="text-xs text-yellow-800">
+            <span class="font-semibold">💡 Tips:</span> Sertakan referensi desain untuk hasil yang lebih maksimal!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Order Section -->
-  <section id="order" class="py-16 px-6 max-w-xl mx-auto text-center">
-    <h2 class="text-2xl font-bold mb-6">Pesan Sekarang</h2>
-    <p class="mb-4">Harga mulai dari Rp15.000 termasuk revisi (Terbatas). Kirim brief dan dapatkan desain cepat & profesional.</p>
-    <a href="https://www.instagram.com/direct/t/17845538070460718" target="_blank" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-full transition shadow-md">Pesan via Instagram</a>
-    <a href="https://www.tiktok.com/messages?lang=id-ID&u=7501243287165207572" target="_blank" class="bg-slate-500 hover:bg-slate-600 text-white font-semibold px-6 py-3 rounded-full transition shadow-md">Pesan via Tiktok</a>
+  <section id="order" class="py-12 px-4 max-w-2xl mx-auto text-center">
+    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-6 md:p-8">
+      <h2 class="text-2xl font-bold mb-4">Siap Membuat Desain Impian Anda?</h2>
+      <p class="mb-6 text-gray-600">Mulai dari Rp15.000 dengan kualitas profesional. Dapatkan desain cepat dengan revisi gratis!</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://www.instagram.com/direct/t/17845538070460718" target="_blank" 
+        class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-full transition shadow-lg">
+          <i class="fab fa-instagram text-xl mr-2"></i> Chat Instagram
+        </a>
+        <a href="https://www.tiktok.com/messages?lang=id-ID&u=7501243287165207572" target="_blank" 
+        class="bg-black hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-full transition shadow-lg">
+          <i class="fab fa-tiktok text-xs mr-2"></i> Chat TikTok
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <p>©2025 Windy Creative</p>
-    <p>Follow kami: 
-      <a href="https://www.instagram.com/wcr_077/" target="_blank" class="hover:underline">Instagram</a> | 
-      <a href="https://www.tiktok.com/@windycr77" target="_blank" class="hover:underline">TikTok</a>
-    </p>
+  <footer class="bg-gray-800 text-white py-8 mt-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="mb-4">
+        <h3 class="text-lg font-bold mb-2">WindY Creative</h3>
+        <p class="text-gray-400 text-sm">Jasa desain poster profesional terpercaya</p>
+      </div>
+      <div class="mb-4">
+        <p class="text-sm">Follow kami untuk update terbaru:</p>
+        <div class="flex justify-center space-x-4 mt-2">
+          <a href="https://www.instagram.com/wcr_077/" target="_blank" class="hover:text-pink-400 transition">
+            <i class="fab fa-instagram text-xs mr-2"></i> Instagram
+          </a>
+          <a href="https://www.tiktok.com/@windycr77" target="_blank" class="hover:text-gray-300 transition">
+            <i class="fab fa-tiktok text-xs mr-2"></i> TikTok
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-4">
+        <p class="text-xs text-gray-400">©2025 WindY Creative. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
